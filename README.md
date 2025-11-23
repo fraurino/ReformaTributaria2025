@@ -1,4 +1,5 @@
 # 📊 Classificação Tributária - Reforma Tributária Brasil
+---
 
 **Sistema de gerenciamento de dados tributários conforme a Reforma Tributária Brasileira (Lei Complementar nº 214/2025)**
 
@@ -99,6 +100,29 @@ uses
   System.JSON;
 ```
 
----
-
 **Lei Complementar nº 214/2025** - Reforma Tributária Brasileira (IBS e CBS)
+
+---
+---
+📢 Conteúdo abaixo é uma campanha publicitária e não faz parte deste repositório.
+
+# 💼 Classe para Reforma Tributária — Classe Pascal (Delphi/Lazarus)
+---
+## 🧠 O que é a **Classe RT**
+
+A **Classe Reforma Tributária (TFuncoesAdicionaisRT)** foi desenvolvida para simplificar a adequação de sistemas ERP, PDV e emissores fiscais à nova estrutura da **CBS** e **IBS**, com base nas normas oficiais da Reforma Tributária.
+
+✔️ **Compatível com Delphi e Lazarus (99%)**  
+✔️ **Códigos e cálculos auxiliares na emissão com a reforma tributária**  
+✔️ **Automação das regras tributárias CBS/IBS**  
+✔️ **Integração modular e rápida com sistemas existentes**
+
+![License: Proprietary](https://img.shields.io/badge/license-Proprietary-red.svg)
+![Status](https://img.shields.io/badge/status-Active-success.svg)
+![Delphi](https://img.shields.io/badge/Delphi-Compatible-blue.svg)
+![Lazarus](https://img.shields.io/badge/Lazarus-Compatible-orange.svg)
+
+## 🌐 Acesse o site oficial 👉 [rt.aurino.com.br](https://rt.aurino.com.br/?utm_source=github&utm_medium=readme&utm_campaign=reforma_tributaria)
+
+
+
