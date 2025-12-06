@@ -1,6 +1,10 @@
 # 📊 Classificação Tributária - Reforma Tributária Brasil
 ---
 
+> 📊 Classe em Delphi ou Lazarus para Reforma Tributária — Saiba mais em 🚀 [rt.aurino.com.br](https://rt.aurino.com.br/?utm_source=github&utm_medium=readme&utm_campaign=reforma_tributaria)
+
+---
+
 **Sistema de gerenciamento de dados tributários conforme a Reforma Tributária Brasileira (Lei Complementar nº 214/2025)**
 
 <img width="1920" height="1040" alt="image" src="https://github.com/user-attachments/assets/cc32c198-f6bf-40c0-adfb-5be857cf99bc" />
@@ -107,6 +111,7 @@ uses
 📢 Conteúdo abaixo é uma campanha publicitária e não faz parte deste repositório.
 
 # 💼 Classe para Reforma Tributária — Classe Pascal (Delphi/Lazarus)
+
 ---
 ## 🧠 O que é a **Classe RT**
 
