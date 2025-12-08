@@ -3,7 +3,7 @@ object frmCalculadoraRT: TfrmCalculadoraRT
   Top = 0
   BorderStyle = bsSingle
   Caption = 'Calculatora RT'
-  ClientHeight = 404
+  ClientHeight = 713
   ClientWidth = 874
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,18 +15,15 @@ object frmCalculadoraRT: TfrmCalculadoraRT
   Position = poScreenCenter
   OnClose = FormClose
   TextHeight = 15
-  object PageControl1: TPageControl
+  object pbListaCClassTrib: TPageControl
     Left = 0
     Top = 0
     Width = 874
-    Height = 404
+    Height = 713
     Cursor = crHandPoint
     ActivePage = tsAliquotas
     Align = alClient
     TabOrder = 0
-    ExplicitTop = 41
-    ExplicitWidth = 892
-    ExplicitHeight = 673
     object tsAliquotas: TTabSheet
       Caption = 'Aliquotas RT'
       object SpeedButton1: TSpeedButton
@@ -43,12 +40,9 @@ object frmCalculadoraRT: TfrmCalculadoraRT
         Left = 0
         Top = 33
         Width = 866
-        Height = 341
+        Height = 650
         Align = alClient
         TabOrder = 0
-        ExplicitTop = 0
-        ExplicitWidth = 365
-        ExplicitHeight = 180
       end
     end
     object TabSheet2: TTabSheet
@@ -56,7 +50,7 @@ object frmCalculadoraRT: TfrmCalculadoraRT
       ImageIndex = 1
       DesignSize = (
         866
-        374)
+        683)
       object SpeedButton4: TSpeedButton
         Left = 135
         Top = 61
@@ -96,13 +90,11 @@ object frmCalculadoraRT: TfrmCalculadoraRT
       object StringGrid1: TStringGrid
         AlignWithMargins = True
         Left = 0
-        Top = 137
+        Top = 152
         Width = 866
-        Height = 533
+        Height = 528
         Anchors = [akLeft, akTop, akRight, akBottom]
         TabOrder = 0
-        ExplicitWidth = 905
-        ExplicitHeight = 572
       end
       object cClassTrib: TLabeledEdit
         Left = 16
@@ -135,8 +127,62 @@ object frmCalculadoraRT: TfrmCalculadoraRT
         Anchors = [akLeft, akTop, akRight]
         ScrollBars = ssVertical
         TabOrder = 3
-        ExplicitWidth = 489
       end
     end
+    object tsArquivoJsonMemTable: TTabSheet
+      Caption = 'Arquivo Json MemTable'
+      ImageIndex = 2
+      DesignSize = (
+        866
+        683)
+      object SpeedButton2: TSpeedButton
+        Left = 16
+        Top = 16
+        Width = 105
+        Height = 22
+        Cursor = crHandPoint
+        Caption = 'Carregar arquivo'
+        OnClick = SpeedButton6Click
+      end
+      object SpeedButton3: TSpeedButton
+        Left = 135
+        Top = 16
+        Width = 248
+        Height = 22
+        Cursor = crHandPoint
+        Caption = 'Lista completa'
+        OnClick = SpeedButton3Click
+      end
+      object DBGrid1: TDBGrid
+        Left = 3
+        Top = 80
+        Width = 860
+        Height = 600
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        DataSource = dsCClassTrib
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -12
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = []
+      end
+    end
+  end
+  object memTableCClassTrib: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 380
+    Top = 66
+  end
+  object dsCClassTrib: TDataSource
+    DataSet = memTableCClassTrib
+    Left = 540
+    Top = 66
   end
 end

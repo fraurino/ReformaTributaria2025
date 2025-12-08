@@ -7,11 +7,15 @@ uses
    System.Generics.Collections,  System.JSON,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
   Vcl.Grids, Vcl.ComCtrls, Vcl.Mask,
-  uCalculadoraTributosAPI, UClassificacaoTributaria;
+  uCalculadoraTributosAPI, UClassificacaoTributaria, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, Vcl.DBGrids, System.Actions,
+  Vcl.ActnList, Vcl.ActnMan;
 
 type
   TfrmCalculadoraRT = class(TForm)
-    PageControl1: TPageControl;
+    pbListaCClassTrib: TPageControl;
     tsAliquotas: TTabSheet;
     TabSheet2: TTabSheet;
     StringGrid1: TStringGrid;
@@ -24,6 +28,12 @@ type
     SpeedButton6: TSpeedButton;
     SpeedButton7: TSpeedButton;
     SpeedButton1: TSpeedButton;
+    tsArquivoJsonMemTable: TTabSheet;
+    SpeedButton2: TSpeedButton;
+    DBGrid1: TDBGrid;
+    memTableCClassTrib: TFDMemTable;
+    dsCClassTrib: TDataSource;
+    SpeedButton3: TSpeedButton;
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
@@ -31,6 +41,7 @@ type
     procedure SpeedButton6Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure SpeedButton7Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -99,7 +110,11 @@ begin
 
   Gerenciador := TGerenciadorClassificacaoTributaria.Create(arquivojson);
   try
-    Gerenciador.Carregar;
+    if pbListaCClassTrib.TabIndex = 1 then
+     Gerenciador.Carregar(0)
+    else
+      Gerenciador.Carregar(1);
+
     PreencherStringGridCompleto(StringGrid1, Gerenciador);
   finally
     Gerenciador.Free;
@@ -112,7 +127,11 @@ begin
 
   try
     // Carregar dados
-    Gerenciador.Carregar;
+    if pbListaCClassTrib.TabIndex = 1 then
+     Gerenciador.Carregar(0)
+    else
+      Gerenciador.Carregar(1);
+
     TabSheet2.Caption := 'Arquivo JSON | Total de registros: ' + IntToStr(Gerenciador.ObterTotal) ;
 
     // BUSCAR CST PELA CLASSIFICAÇÃO
@@ -137,6 +156,11 @@ begin
   end;
 end;
 
+
+procedure TfrmCalculadoraRT.SpeedButton3Click(Sender: TObject);
+begin
+  PreencherMemTableCompleto(memTableCClassTrib, Gerenciador);
+end;
 
 procedure TfrmCalculadoraRT.SpeedButton4Click(Sender: TObject);
 var
@@ -195,7 +219,11 @@ begin
 
   // Criar gerenciador apontando para o arquivo JSON
   Gerenciador := TGerenciadorClassificacaoTributaria.Create(arquivojson);
-  Gerenciador.Carregar;
+
+  if pbListaCClassTrib.TabIndex = 1 then
+     Gerenciador.Carregar(0)
+    else
+      Gerenciador.Carregar(1);
 
 end;
 
